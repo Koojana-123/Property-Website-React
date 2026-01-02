@@ -1,0 +1,20 @@
+.bg-body-tertiary {
+  font-size: medium;
+  background-color: black; /* Change background color to black */
+}
+
+.bg-body-tertiary .navbar-nav .nav-link {
+  color: rgb(0, 0, 0); /* Set the default color of nav links */
+}
+
+.bg-body-tertiary .navbar-nav .nav-link:hover {
+  font-weight: bolder;
+  color: #2170ac; /* Change the color on hover to a specific color, e.g., orange */
+}
+
+.custom-navbar-brand {
+  font-size: 70px;
+  color: rgb(255, 255, 255); /* Set the color of the brand */
+}
+
+

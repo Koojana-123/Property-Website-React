@@ -1,0 +1,214 @@
+{
+	"properties": [
+        {
+            "id":"property1",
+			"type":"House",
+            "bedrooms":5,
+			"price":500000,
+			"tenure":"Freehold",
+			"description":"Discover a harmonious blend of tranquility and modern luxury in this remarkable property. With over 3,500 square feet of living space, the residence features four spacious bedrooms, each with private views of the lush gardens. The open-concept living area seamlessly connects to a gourmet kitchen, while the outdoor patio and pool create a serene space for relaxation.",
+			"location":"Edmonton,Canada",
+			"postal code":"T5R5B2",
+			"map": "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d2025.8396582367684!2d-113.5700026!3d53.5271516!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x53a021bcd4cc756d%3A0xe86fe6ff32fef8b5!2s14344%2092%20Ave%20NW%2C%20Edmonton%2C%20AB%20T5R%205B2%2C%20Canada!5e1!3m2!1sen!2slk!4v1705331059616!5m2!1sen!2slk",
+            "added": {
+                "month":"March",
+                "day":16,
+                "year":2023
+            }
+			,
+            "pictures": [
+                "/images/prop1/p11.jpg",
+                "/images/prop1/p12.jpg",
+                "/images/prop1/p13.jpg",
+				"/images/prop1/p14.jpg",
+                "/images/prop1/p15.jpg",
+                "/images/prop1/p16.jpg"
+            ]
+        },
+		{
+            "id":"prop2",
+			"type":"House",
+            "bedrooms":5,
+			"price":700000,
+			"tenure":"Leasehold",
+			"description":"Ascend into luxury living with this architectural gem offering 5,000 square feet of modern elegance. Boasting four bedrooms, the master suite opens to a private balcony with sweeping panoramic views. The expansive living area features floor-to-ceiling windows, providing an immersive experience of the surrounding landscape. A state-of-the-art kitchen and a home office complete this sophisticated dwelling.",
+			"location":"Oak Avenue,",
+			"postal code":"A1B 2C3",
+			"map": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3166.701126212887!2d-122.43610500000001!3d37.467777999999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808f74ae24cc563b%3A0x22c2833c16b6e348!2s456%20Oak%20Ave%2C%20Half%20Moon%20Bay%2C%20CA%2094019%2C%20USA!5e0!3m2!1sen!2slk!4v1705331611079!5m2!1sen!2slk",
+            "added": {
+                "month":"October",
+                "day":17,
+                "year":2023
+            }
+			,
+            "pictures": [
+                "/images/prop2/p21.jpg",
+                "/images/prop2/p22.jpg",
+                "/images/prop2/p23.jpg",
+				"/images/prop2/p24.jpg",
+                "/images/prop2/p25.jpg",
+                "/images/prop2/p26.jpg"
+            ]
+        },
+        {
+			"id": "prop3",
+			"type": "Apartment",
+			"bedrooms": 4,
+			"price": 850000,
+			"tenure": "Freehold",
+			"description": "Step into a piece of history reimagined for modern living. This meticulously renovated property, spanning 4,200 square feet, offers five bedrooms, including a charming master suite with a restored fireplace. The gourmet kitchen and formal dining room preserve the property's historic charm, while smart home features bring convenience to this elegant residence.",
+			"location": "Pine Lane",
+			"postal code":"X0Y 1Z9",
+			"map": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2993.6836099847033!2d-81.74419619999999!3d28.5457209!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88e78ee5c0cf0945%3A0xfda6e7b73b3d4221!2s789%20Pine%20Ln%2C%20Clermont%2C%20FL%2034711%2C%20USA!5e1!3m2!1sen!2slk!4v1705331592328!5m2!1sen!2slk",
+			"picture": "images/prop3pic1small.jpg",
+			"url": "properties/prop3.html",
+			"added": {
+				"month": "December",
+				"day": 6,
+				"year": 2023
+			}
+			,
+            "pictures": [
+				"/images/prop3/p31.jpg",
+                "/images/prop3/p32.jpg",
+                "/images/prop3/p33.jpg",
+				"/images/prop3/p34.jpg",
+                "/images/prop3/p35.jpg",
+                "/images/prop3/p36.jpg"
+            ]
+		},{
+			"id": "prop4",
+			"type": "House",
+			"bedrooms": 4,
+			"price": 580000,
+			"tenure": "Leasehold",
+			"description": "Live in style at this contemporary urban retreat with 2,800 square feet of sleek design. The three-bedroom layout provides spacious living, complemented by a gourmet kitchen and a private rooftop terrace. Floor-to-ceiling windows flood the space with natural light, offering a glimpse into the dynamic cityscape just outside your door..",
+			"location": "Cedar Drive",
+			"postal code":"A1B 2C3",
+			"map": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2580.454158201637!2d-73.74461389999999!3d40.78358540000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c2898bb4786b39%3A0xf3a1d80cc880e5b0!2s101%20Cedar%20Dr%2C%20Great%20Neck%2C%20NY%2011021%2C%20USA!5e1!3m2!1sen!2slk!4v1705331568217!5m2!1sen!2slk",
+			"picture": "images/prop4pic1small.jpg",
+			"url": "properties/prop4.html",
+			"added": {
+				"month": "January",
+				"day": 12,
+				"year": 2023
+			}
+			,
+            "pictures": [
+				"/images/prop4/p41.jpg",
+				"/images/prop4/p42.jpg",
+				"/images/prop4/p43.jpg",
+				"/images/prop4/p44.jpg",
+				"/images/prop4/p45.jpg",
+				"/images/prop4/p46.jpg"
+			  ]
+		},{
+			"id": "prop5",
+			"type": "Mansion",
+			"bedrooms": 5,
+			"price": 350000,
+			"tenure": "Leasehold",
+			"description": "Embrace coastal living in this waterfront paradise featuring 3,600 square feet of luxurious space. The four-bedroom layout offers stunning water views from every room, while the private beach access and expansive deck create an outdoor oasis. A gourmet kitchen and spa-inspired bathrooms complete this exclusive waterfront retreat.",
+			"location": "3120 Carlin Rd",
+			"postal code":"LM 617h",
+			"map": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2152.5193503493533!2d-119.33301929999998!3d50.8307443!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x537efbfd31080bc3%3A0xac5c55c1c36dcb90!2s3120%20Carlin%20Rd%2C%20Tappen%2C%20BC%20V0E%202X3%2C%20Canada!5e1!3m2!1sen!2slk!4v1705332976668!5m2!1sen!2slk",
+			"picture": "images/prop5pic1small.jpg",
+			"url": "properties/prop5.html",
+			"added": {
+				"month": "September",
+				"day": 8,
+				"year": 2023
+			}
+			,
+            "pictures": [
+				"/images/prop5/p51.jpg",
+				"/images/prop5/p52.jpg",
+				"/images/prop5/p53.jpg",
+				"/images/prop5/p54.jpg",
+				"/images/prop5/p55.jpg",
+				"/images/prop5/p56.jpg"
+			  ]
+
+        },{
+			"id": "prop6",
+			"type": "Apartment",
+			"bedrooms": 2,
+			"price": 400000,
+			"tenure": "Freehold",
+			"description": "A modern three-bedroom townhouse with a spacious living area, contemporary kitchen, and private garden. The master bedroom includes an en-suite bathroom, and the property benefits from a garage. Located in a quiet residential area with easy access to schools, parks, and public transport.",
+			"location": "Port Townsend",
+			"postal code":"6RW 511",
+			"map": "Enjoy the simplicity of country living in this charming rustic abode. With 2,200 square feet, three bedrooms, and a cozy living room with a fireplace, this property exudes warmth. The surrounding acres of land provide ample space for outdoor activities, creating a true haven for those seeking a peaceful escape.",
+			"picture": "images/prop6pic1small.jpg",
+			"url": "properties/prop6.html",
+			"added": {
+				"month": "December",
+				"day": 5,
+				"year": 2022
+			}
+			,
+            "pictures": [
+				"/images/prop6/p61.jpg",
+				"/images/prop6/p62.jpg",
+				"/images/prop6/p63.jpg",
+				"/images/prop6/p64.jpg",
+				"/images/prop6/p65.jpg",
+				"/images/prop6/p66.jpg"
+			  ]
+		},{
+			"id": "prop7",
+			"type": "House",
+			"bedrooms": 8,
+			"price": 1180000,
+			"tenure": "Leasehold",
+			"description": "Redefine contemporary living in this sustainable marvel spanning 3,800 square feet. Featuring four bedrooms, a gourmet kitchen with energy-efficient appliances, and a living space designed for optimal natural light, this property is a testament to eco-friendly luxury living. Solar panels and smart home technology ensure a seamless blend of sustainability and comfort.",
+			"location": "Grand View Dr NW",
+			"postal code":"k99 6RW",
+			"map": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2027.0390171599176!2d-113.5475719!3d53.5020723!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x53a021de8c4f4fdd%3A0x93ae9d22651b0761!2s12511%20Grand%20View%20Dr%20NW%2C%20Edmonton%2C%20AB%20T6H%204K5%2C%20Canada!5e1!3m2!1sen!2slk!4v1705333211982!5m2!1sen!2slk",
+			"picture": "images/prop7pic1small.jpg",
+			"url": "properties/prop7.html",
+			"added": {
+				"month": "April",
+				"day": 11,
+				"year": 2023
+			}
+			,
+            "pictures": [
+				"/images/prop7/p71.jpg",
+				"/images/prop7/p72.jpg",
+				"/images/prop7/p73.jpg",
+				"/images/prop7/p74.jpg",
+				"/images/prop7/p75.jpg",
+				"/images/prop7/p76.jpg"
+			  ]
+		},
+		{
+			"id": "prop8",
+			"type": "Flat",
+			"bedrooms": 2,
+			"price": 420000,
+			"tenure": "Leasehold",
+			"description": "Immerse yourself in the cultural epicenter of the city with this three-bedroom haven. Boasting 2,500 square feet of living space, the property features an art-inspired interior, a chef's kitchen, and a private study. Located in the vibrant arts district, this residence is a sophisticated retreat for those who appreciate the fusion of art and urban living.",
+			"location": "cape,street,Yorkshire",
+			"postal code":"K8L 6R23",
+			"map": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2012.7236077152916!2d-1.7508680000000003!3d53.80088920000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487be1502dc75381%3A0xaf0e39278d37c878!2sCape%20St%2C%20Bradford%2C%20UK!5e1!3m2!1sen!2slk!4v1705332587078!5m2!1sen!2slk",
+			"picture": "images/prop8pic1small.jpg",
+			"url": "properties/prop8.html",
+			"added": {
+				"month": "January",
+				"day": 8,
+				"year": 2023
+			}
+			,
+            "pictures": [
+				"/images/prop8/p81.jpg",
+				"/images/prop8/p82.jpg",
+				"/images/prop8/p83.jpg",
+				"/images/prop8/p84.jpg",
+				"/images/prop8/p85.jpg",
+				"/images/prop8/p86.jpg"
+			  ]
+		}
+		
+	]
+}
