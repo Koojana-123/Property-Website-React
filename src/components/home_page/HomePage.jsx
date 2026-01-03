@@ -1,69 +1,81 @@
-// HomePage.jsx
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Carousel from 'react-bootstrap/Carousel';
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
-import Card from 'react-bootstrap/Card';
+import { Navbar, Nav, Container, Row, Col, Card, Button } from 'react-bootstrap';
+import { FiArrowRight, FiCheckCircle, FiUser, FiHome, FiSearch } from 'react-icons/fi';
 import './HomePage.css';
 
-const CarouselItemCard = ({ title, description }) => {
-  return (
-    <Card className="carousel-card">
-      <Card.Body>
-        <Card.Title>{title}</Card.Title>
-        <Card.Text>{description}</Card.Text>
-      </Card.Body>
-    </Card>
-  );
-};
+// Using absolute path for public folder images in Vite
+const Homeimage = '/images/Banner/Homeimage.png';
+const detailImg1 = '/images/Homeimg/img1.jpg';
+const detailImg2 = '/images/Homeimg/Img2.jpeg';
+const detailImg3 = '/images/Homeimg/Img3.jpeg';
 
 const HomePage = () => {
+  const extraDetails = [
+    { id: 1, title: "Modern Designs", desc: "Sleek, contemporary architecture for modern living.", img: detailImg1 },
+    { id: 2, title: "Design your dream with US", desc: "Properties situated in the heart of the most vibrant cities.", img: detailImg2 },
+    { id: 3, title: "Prime Location", desc: "Every property is manually checked for safety and quality.", img: detailImg3 },
+  ];
+
   return (
     <div className="home-page">
+      
+      
+      
+          
 
-      {/* HERO / CAROUSEL */}
-      <Carousel fade>
-        {[
-          { img: 'p21.jpg', title: 'Perfect Locations', desc: 'Make a path to your dream home' },
-          { img: 'p22.jpg', title: 'Apartments', desc: 'Find homes within your budget' },
-          { img: 'p23.jpg', title: 'Mansions', desc: 'Luxury that matches your vision' },
-        ].map((item, index) => (
-          <Carousel.Item key={index}>
-            <img
-              className="d-block w-100 carousel-image"
-              src={`/src/components/CarouselImage/${item.img}`}
-              alt={item.title}
-            />
-            <Carousel.Caption>
-              <CarouselItemCard
-                title={item.title}
-                description={item.desc}
-              />
-            </Carousel.Caption>
-          </Carousel.Item>
-        ))}
-      </Carousel>
+      {/* HERO SECTION */}
+      <section className="home-banner-container">
+        {/* Layer 1: The House Image (Bottom-Left Cornered) */}
+        <div className="home-image-wrapper">
+          <img src={Homeimage} alt="Luxury Home" className="home-image-large" />
+        </div>
 
-      {/* SERVICES SECTION */}
-      <Container fluid className="services-section">
-        <Row className="justify-content-center text-center">
-          <Col lg={8} md={10}>
-            <h2>Our Services</h2>
-            <p>
-              Homio Properties helps you search, compare, and save properties
-              with ease. Explore homes based on your preferences and manage
-              your favourites all in one place.
+        {/* Layer 2: The Glass Textbox (Positioned on the Right) */}
+        <div className="banner-content-overlay">
+          <div className="glass-textbox">
+            <h1 className="primary-heading">Find Your Dream Home</h1>
+            <h2 className="secondary-heading">With Homio Properties</h2>
+            <p className="description">
+              Discover a curated selection of premium properties. 
+              Whether you're buying or renting, we find the perfect fit for your lifestyle.
             </p>
-
-            <Link to="/properties" className="btn btn-primary mt-3">
-              Browse Properties
+            <Link to="/properties" className="btn-action">
+              Explore Now <FiArrowRight />
             </Link>
-          </Col>
+          </div>
+        </div>
+      </section>
+
+      {/* THREE TABS SECTION (DETAILS) */}
+      <Container className="details-section py-5">
+        <div className="text-center mb-5">
+          <h2 className="fw-bold fs-1">Our Expertise</h2>
+          <div className="accent-bar"></div>
+        </div>
+        <Row className="g-4">
+          {extraDetails.map((item) => (
+            <Col key={item.id} lg={4} md={6}>
+              <Card className="info-card border-0 shadow h-100">
+                <div className="img-zoom-wrapper">
+                  <Card.Img variant="top" src={item.img} className="info-card-img" />
+                </div>
+                <Card.Body className="p-4">
+                  <Card.Title className="fw-bold mb-3 d-flex align-items-center">
+                    <FiCheckCircle className="text-primary me-2" /> {item.title}
+                  </Card.Title>
+                  <Card.Text className="text-muted">
+                    {item.desc}
+                  </Card.Text>
+                  <Link to="/details" className="btn btn-link p-0 fw-bold text-decoration-none">
+                    Read More <FiArrowRight />
+                  </Link>
+                </Card.Body>
+              </Card>
+            </Col>
+          ))}
         </Row>
       </Container>
-
     </div>
   );
 };

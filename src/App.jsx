@@ -2,13 +2,13 @@ import React from 'react';
 import NavBar from './components/Navbar/NavBar';
 import HomePage from './components/home_page/HomePage';
 import Services from './components/services_page/Services';
-import Properties from './components/properties_page/Properties';
+import Properties from './components/properties_page/PropertyList';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Aboutus from './components/aboutus_page/Aboutus';
-import Property from './components/properties_page/Property';
+import Property from './components/properties_page/PropertyDetails';
 import { FavoriteProvider } from './components/properties_page/FavoriteContext';
 import Footer from './components/Navbar/Footer'; 
-import ContactUs from './components/contactUs/contactUs'
+
 
 function App() {
   return (
@@ -20,7 +20,7 @@ function App() {
           <Route path="/services" element={<Services />} />
           <Route path="/properties" element={<Properties />} />
           <Route path="/aboutus" element={<Aboutus />} />
-          <Route path="/contactus" element={<ContactUs />} />
+          
           <Route path="/properties/:id" element={<Property />} />
         </Routes>
         <Footer />

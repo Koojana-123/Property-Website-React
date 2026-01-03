@@ -16,7 +16,7 @@ const Footer = () => {
           </div>
           <div >
             
-            <p>&copy; 2024 Homio Properties. All rights reserved.</p>
+            <p>&copy; 2025 Homio Properties. All rights reserved.</p>
           </div>
         </div>
       </div>

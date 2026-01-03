@@ -181,34 +181,8 @@
 				"/images/prop7/p75.jpg",
 				"/images/prop7/p76.jpg"
 			  ]
-		},
-		{
-			"id": "prop8",
-			"type": "Flat",
-			"bedrooms": 2,
-			"price": 420000,
-			"tenure": "Leasehold",
-			"description": "Immerse yourself in the cultural epicenter of the city with this three-bedroom haven. Boasting 2,500 square feet of living space, the property features an art-inspired interior, a chef's kitchen, and a private study. Located in the vibrant arts district, this residence is a sophisticated retreat for those who appreciate the fusion of art and urban living.",
-			"location": "cape,street,Yorkshire",
-			"postal code":"K8L 6R23",
-			"map": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2012.7236077152916!2d-1.7508680000000003!3d53.80088920000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487be1502dc75381%3A0xaf0e39278d37c878!2sCape%20St%2C%20Bradford%2C%20UK!5e1!3m2!1sen!2slk!4v1705332587078!5m2!1sen!2slk",
-			"picture": "images/prop8pic1small.jpg",
-			"url": "properties/prop8.html",
-			"added": {
-				"month": "January",
-				"day": 8,
-				"year": 2023
-			}
-			,
-            "pictures": [
-				"/images/prop8/p81.jpg",
-				"/images/prop8/p82.jpg",
-				"/images/prop8/p83.jpg",
-				"/images/prop8/p84.jpg",
-				"/images/prop8/p85.jpg",
-				"/images/prop8/p86.jpg"
-			  ]
 		}
+		
 		
 	]
 }

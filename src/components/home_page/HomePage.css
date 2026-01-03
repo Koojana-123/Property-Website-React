@@ -1,92 +1,145 @@
-/* HomePage.css */
-
-.home-page {
+/* BANNER BASE */
+.home-banner-container {
+  position: relative;
   width: 100%;
-  overflow-x: hidden;
+  min-height: 85vh; 
+  background: url('/images/Banner/Banner.png') center/cover no-repeat;
+  display: flex;
+  align-items: flex-end; /* Align items to bottom for the house image */
+  overflow: hidden;
 }
 
-/* Carousel image */
-.carousel-image {
-  max-height: 600px;
-  object-fit: cover;
+/* HOME IMAGE: Anchored Left */
+.home-image-wrapper {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 90%;
+  width: 60%; 
+  display: flex;
+  align-items: flex-end;
+  z-index: 1;
 }
 
-/* Carousel card */
-.carousel-card {
-  background-color: rgba(255, 255, 255, 0.8);
-  border-radius: 12px;
-  padding: 10px;
+.home-image-large {
+  max-height: 100%;
+  width: auto;
+  object-fit: contain;
+  filter: drop-shadow(10px -10px 20px rgba(0,0,0,0.2));
 }
 
-/* Carousel text */
-.carousel-card h5 {
-  font-size: 2.5rem;
-  color: #000;
+/* CONTENT OVERLAY */
+.banner-content-overlay {
+  position: relative; /* Changed to relative to play nice with flex */
+  z-index: 10;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  padding: 50px 8%;
 }
 
-.carousel-card p {
-  font-size: 1.2rem;
-  color: #333;
+/* GLASS EFFECT TEXTBOX */
+.glass-textbox {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 30px;
+  padding: 50px;
+  color: #ffffff;
+  max-width: 550px;
+  box-shadow: 0 15px 45px rgba(0, 0, 0, 0.4);
 }
 
-/* Services section */
-.services-section {
-  padding: 100px 20px;
-  background-color: #f8f9fa;
+.primary-heading {
+  color: #ffffff;
+  font-size: clamp(2rem, 5vw, 3.6rem); /* Responsive font sizing */
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: 15px;
 }
 
-.services-section h2 {
-  margin-bottom: 20px;
-  color: #343a40;
-}
+/* --- RESPONSIVE MEDIA QUERIES --- */
 
-.services-section p {
-  font-size: 18px;
-  color: #6c757d;
-}
-
-/* ===================== */
-/* RESPONSIVE DESIGN */
-/* ===================== */
-
-@media (max-width: 1024px) {
-  .carousel-card h5 {
-    font-size: 2rem;
+/* Tablets (iPad/Portrait) */
+@media (max-width: 992px) {
+  .home-banner-container {
+    flex-direction: column; /* Stack vertically */
+    height: auto;
+    min-height: unset;
+    padding-top: 60px;
   }
 
-  .carousel-card p {
-    font-size: 1rem;
+  .home-image-wrapper {
+    position: relative; /* Stop floating */
+    width: 100%;
+    order: 2; /* Put image AFTER text on mobile */
+    justify-content: center;
+    margin-top: -50px; /* Slight overlap with text for style */
+  }
+
+  .home-image-large {
+    max-height: 400px;
+    width: 90%;
+    object-fit: contain;
+  }
+
+  .banner-content-overlay {
+    justify-content: center;
+    padding: 20px;
+    order: 1;
+  }
+
+  .glass-textbox {
+    padding: 30px;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.4); /* Darker background for better readability on mobile */
   }
 }
 
-@media (max-width: 768px) {
-  .carousel-image {
-    max-height: 350px;
+/* Mobile Phones */
+@media (max-width: 576px) {
+  .primary-heading {
+    font-size: 2.2rem;
+  }
+  
+  .secondary-heading {
+    font-size: 1.3rem;
   }
 
-  .carousel-card {
-    padding: 8px;
+  .btn-action {
+    width: 100%; /* Full width button on small phones */
+    justify-content: center;
   }
 
-  .carousel-card h5 {
-    font-size: 1.5rem;
+  .home-image-large {
+    max-height: 300px;
   }
 
-  .carousel-card p {
-    font-size: 0.95rem;
-  }
-
-  .services-section {
-    padding: 60px 15px;
-  }
 }
 
-@media (max-width: 480px) {
-  .carousel-card h5 {
-    font-size: 1.2rem;
-  }
 
-  .carousel-card p {
-    font-size: 0.9rem;
-  }
+.btn-action {
+  /* 1. Ensure it behaves like a block/button */
+  display: inline-flex !important; 
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+
+  /* 2. Forces visibility */
+  background-color: #0d6efd !important; 
+  color: white !important;
+  
+  /* 3. Padding and Size */
+  padding: 16px 40px;
+  min-width: 200px;
+  border-radius: 50px;
+  
+  /* 4. Reset link defaults */
+  text-decoration: none !important;
+  font-weight: 700;
+  
+  /* 5. Ensure it stays on top */
+  position: relative;
+  z-index: 20;
 }

@@ -4,7 +4,7 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import './NavBar.css';
 import NavDropdown from 'react-bootstrap/NavDropdown';
-import logo from 'C:/Users/Ragnor/Desktop/react_vite_app/public/images/icons8-home-64.png';
+import logo from 'C:/Users/Ragnor/Desktop/react_vite_app/public/images/Logo/logo.png';
 
 
 <nav className="navbar bg-body-tertiary">
@@ -17,11 +17,12 @@ const NavBar = () => {
           <img
             src={logo}
             alt="Homio Properties Logo"
-            width="30"
-            height="30"
+            width="230"
+            height="70"
+            style={{ marginTop: '20px' }} 
             className="d-inline-block align-top"
           />{' '}
-          Homio Properties
+          
         </Navbar.Brand>
 
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -48,12 +49,7 @@ const NavBar = () => {
             >
               About Us
             </Nav.Link>
-            <Nav.Link
-              href="/contactus"
-              className={`m-1 ${location.pathname === '/contactus' ? 'active' : ''}`}
-            >
-              Contact Us
-            </Nav.Link>
+            
           </Nav>
         </Navbar.Collapse>
       </Container>
