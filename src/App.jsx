@@ -12,7 +12,7 @@ import Footer from './components/Navbar/Footer';
 
 function App() {
   return (
-    <BrowserRouter basename="/Property-Website-React/">
+    <BrowserRouter >
       <FavoriteProvider>
         <NavBar />
         <Routes>
