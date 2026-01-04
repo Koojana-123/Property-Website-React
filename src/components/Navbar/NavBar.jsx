@@ -4,7 +4,7 @@ import { Container, Nav, Navbar } from 'react-bootstrap';
 import './NavBar.css';
 
 // RELATIVE PATH: This ensures the logo loads on GitHub Pages and other computers
-const logo = '/images/Logo/logo.png'; 
+import logo from '../../assets/Logo.png';
 
 const NavBar = () => {
   // HOOK: useLocation is required to get the current path for the 'active' class
