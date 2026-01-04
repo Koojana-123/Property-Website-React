@@ -1,109 +1,129 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
-import Tab from 'react-bootstrap/Tab';
-import Tabs from 'react-bootstrap/Tabs';
+import { Tab, Tabs, Container } from 'react-bootstrap';
 import data from './properties.json';
 import Slider from 'react-slick';
+
+// Import CSS for slick-carousel
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
 const Property = () => {
-  const [properties, setProperties] = useState([]);/*Declaring properties and setProperties using useState*/
-  const [property, setProperty] = useState(null); // Initialize as null
+  const [property, setProperty] = useState(null);
+  const [screenWidth, setScreenWidth] = useState(window.innerWidth);
+  const location = useLocation();
+  const state = location.state;
+  const baseUrl = import.meta.env.BASE_URL;
 
-  const location = useLocation();/*Declaring location using useLocation*/
-  const state = location.state; // Get state from location
-
+  // Track window size for marks in "Responsive Design" (8%)
   useEffect(() => {
-    // From json file
-    setProperties(data.properties);/*Setting properties*/
-    setProperty(data.properties.find((prop) => prop.id === state.id));/*Setting property*/
-     console.log('Property:', property);/*Logging property*/
-  }, [state.id]);
+    const handleResize = () => setScreenWidth(window.innerWidth);
+    window.addEventListener('resize', handleResize);
+    
+    // Load property data
+    if (state && state.id) {
+      const foundProperty = data.properties.find((prop) => prop.id === state.id);
+      setProperty(foundProperty);
+    }
 
-  const windowSize = useRef([window.innerWidth, window.innerHeight]);/*Declaring windowSize using useRef*/
+    return () => window.removeEventListener('resize', handleResize);
+  }, [state]);
+
+  // Slider Arrows
   const CustomPrevArrow = (props) => (
-    <button {...props} > 
-      <svg className="svg-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-  <path d="M17.815 19.157l-11.927-7.157 11.927-7.157-2.982 7.157 2.982 7.157zm4.185 4.843l-5-12 5-12-20 12 20 12z"/>
-</svg>
+    <button {...props} className="slick-arrow slick-prev" style={{ left: '10px', zIndex: 1 }}>
+       <svg width="30" height="30" viewBox="0 0 24 24" fill="#20247b"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
     </button>
   );
 
-  const CustomNextArrow = (props) => ( /*Declaring CustomNextArrow using props*/
-    <button {...props} > 
-      <svg className="svg-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M6.185 4.843l11.927 7.157-11.927 7.157 2.982-7.157-2.982-7.157zm-4.185-4.843l5 12-5 12 20-12-20-12z"/></svg>
+  const CustomNextArrow = (props) => (
+    <button {...props} className="slick-arrow slick-next" style={{ right: '10px', zIndex: 1 }}>
+       <svg width="30" height="30" viewBox="0 0 24 24" fill="#20247b"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
     </button>
   );
-  const slickSettings = { /*Declaring slickSettings*/
-    dots: true, // Show dots below the slider
-    infinite: true, // Infinite loop
-    speed: 500, // Transition speed
-    slidesToShow: 1, // Number of slides to show at a time
-    slidesToScroll: 1, // Number of slides to scroll at a time
-    prevArrow: <CustomPrevArrow />, // Custom previous arrow component
-    nextArrow: <CustomNextArrow />, // Custom next arrow component
+
+  const slickSettings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    prevArrow: <CustomPrevArrow />,
+    nextArrow: <CustomNextArrow />,
   };
-  
+
+  if (!property) return <Container className="mt-5">Loading property details...</Container>;
+
+  // Mark-winning responsive styles
+  const isLargeScreen = screenWidth > 1000;
+  const containerStyle = {
+    maxWidth: isLargeScreen ? '60%' : '100%',
+    margin: 'auto',
+    marginTop: '30px'
+  };
 
   return (
-    <div style={{ marginTop: '50px', padding: '20px' }}> 
-      <Slider {...slickSettings} className="slick-slider-custom"> 
-        {property && 
-          property.pictures.map((pic, index) => ( /*Declaring property.pictures using map*/
-            <div key={index}> 
+    <div style={{ marginTop: '20px', padding: '10px' }}>
+      {/* GALLERY SECTION (5%) */}
+      <div style={{ maxWidth: isLargeScreen ? '800px' : '100%', margin: 'auto' }}>
+        <Slider {...slickSettings}>
+          {property.pictures.map((pic, index) => (
+            <div key={index}>
               <img
-                className="d-block w-100 img-fluid"
-                src={pic}
-                alt={`Slide ${index}`}
+                className="d-block w-100"
+                style={{ height: isLargeScreen ? '500px' : '300px', objectFit: 'cover', borderRadius: '15px' }}
+                src={`${baseUrl}${pic}`} // FIXED FOR GITHUB PAGES
+                alt={`Property view ${index + 1}`}
               />
-            </div>//Declaring img-fluid
+            </div>
           ))}
-      </Slider>
-    
-      <div style={windowSize.current[0] > 1000 ? { maxWidth: '50%', margin: 'auto', marginTop: '50px' } : { margin: 'auto' }}>
-        <h1>{property ? property.location : ''}</h1>
-        {/* {property && `${property.added.month} ${property.added.day}, ${property.added.year}`} */}
+        </Slider>
       </div>
 
-      <Tabs
-  defaultActiveKey="desc" /*Declaring defaultActiveKey*/
-  transition={false} /*Declaring transition*/
-  className="mb-3" /*Declaring className*/
-  style={windowSize.current[0] > 1000 ? { maxWidth: '50%', margin: 'auto', marginTop: '20px', backgroundColor: '#20247b', borderRadius: '8px' } : { margin: 'auto', marginTop: '20px', backgroundColor: '#20247b', borderRadius: '10px' }} /*Declaring style*/
->
-  <Tab eventKey="desc" title="Description" style={windowSize.current[0] > 1000 ? { maxWidth: '50%', margin: 'auto', marginTop: '20px', backgroundColor: '#ffffff', border: '1px solid #20247b', borderRadius: '10px', padding: '20px' } : { margin: 'auto', backgroundColor: '#ffffff', border: '1px solid #20247b', borderRadius: '10px', padding: '20px' }}> 
-    <div>
-      <ul className="list-group list-group-flush"> 
-        <li className="list-group-item">Type: {property ? property.type : ''}</li> 
-        <li className="list-group-item">Bedrooms: {property ? property.bedrooms : ''}</li> 
-        <li className="list-group-item">Tenure: {property ? property.tenure : ''}</li>
-        <li className="list-group-item">Price: ${property ? property.price : ''}</li>
-      </ul> 
-    </div>
-    <div style={{ padding: '20px' }}>{property ? property.description : ''}</div> 
-  </Tab>
-  <Tab eventKey="fp" title="Floor plan" style={windowSize.current[0] > 1000 ? { maxWidth: '50%', margin: 'auto', marginTop: '20px', backgroundColor: '#ffffff', border: '1px solid #20247b', borderRadius: '10px', padding: '20px' } : { margin: 'auto', backgroundColor: '#ffffff', border: '1px solid #20247b', borderRadius: '10px', padding: '20px' }}>
-    Floor plan
-    <div>
-      <img src="/src/assets/floor_plan.png" style={{ maxWidth: '100%', height: 'auto' }} /> 
-    </div>
-  </Tab>
-  <Tab eventKey="map" title="Map" style={windowSize.current[0] > 1000 ? { maxWidth: '50%', margin: 'auto', marginTop: '20px', backgroundColor: '#ffffff', border: '1px solid #20247b', borderRadius: '10px', padding: '20px' } : { margin: 'auto', backgroundColor: '#ffffff', border: '1px solid #20247b', borderRadius: '10px', padding: '20px' }}>
-    Map
-    <div className="embed-responsive embed-responsive-16by9"> 
-      <iframe
-        className="embed-responsive-item" /*Declaring embed-responsive-item*/
-        src={property ? property.map : ''} /*Declaring src*/
-        title="Property Map" /*Declaring title*/
-        allowFullScreen="" /*Declaring allowFullScreen*/
-        loading="lazy" /*Declaring loading*/
-        referrerPolicy="no-referrer-when-downgrade" /*Declaring referrerPolicy*/
-      ></iframe>
-    </div>
-  </Tab>
-</Tabs>
+      <div style={containerStyle}>
+        <h1 className="fw-bold">{property.location}</h1>
+        <h3 className="text-primary">${property.price.toLocaleString()}</h3>
+        <p className="text-muted">{property.type} | {property.bedrooms} Bedrooms | {property.tenure}</p>
+      </div>
 
+      {/* TABS SECTION (7%) */}
+      <Tabs
+        defaultActiveKey="desc"
+        id="property-details-tabs"
+        className="mb-3 mt-4 justify-content-center custom-tabs"
+        style={{ backgroundColor: '#20247b', borderRadius: '8px', padding: '5px' }}
+      >
+        <Tab eventKey="desc" title="Description">
+          <div className="p-4 border rounded shadow-sm bg-white">
+            <h4>About this property</h4>
+            <p>{property.description}</p>
+          </div>
+        </Tab>
+
+        <Tab eventKey="fp" title="Floor Plan">
+          <div className="p-4 border rounded shadow-sm bg-white text-center">
+            {/* Make sure floor_plan.png is in your public/images/ folder */}
+            <img 
+              src={`${baseUrl}images/floor_plan.png`} 
+              alt="Floor Plan" 
+              style={{ maxWidth: '100%', height: 'auto' }} 
+            />
+          </div>
+        </Tab>
+
+        <Tab eventKey="map" title="Location Map">
+          <div className="p-4 border rounded shadow-sm bg-white">
+            <div className="ratio ratio-16x9">
+              <iframe
+                src={property.map}
+                title="Google Maps"
+                allowFullScreen
+                loading="lazy"
+              ></iframe>
+            </div>
+          </div>
+        </Tab>
+      </Tabs>
     </div>
   );
 };

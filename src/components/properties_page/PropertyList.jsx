@@ -5,6 +5,8 @@ import { useNavigate } from 'react-router-dom';
 import { useFavorite } from './FavoriteContext';
 import data from "./properties.json";
 
+const baseUrl = import.meta.env.BASE_URL;
+
 const Properties = () => {
   const [properties, setProperties] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
@@ -144,7 +146,11 @@ const Properties = () => {
               onDragStart={(e) => onDragStart(e, property)} // 3. START DRAG
               style={{ cursor: 'grab' }}
             >
-              <Card.Img variant="top" src={property.pictures[0]} style={{ height: '200px', objectFit: 'cover' }} />
+              <Card.Img 
+              variant="top" 
+               src={`${baseUrl}${property.pictures[0]}`} 
+               style={{ height: '200px', objectFit: 'cover' }} 
+                />
               <Card.Body>
                 <Card.Title>{property.location}</Card.Title>
                 <ul className="list-unstyled">

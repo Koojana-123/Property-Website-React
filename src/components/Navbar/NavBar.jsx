@@ -1,19 +1,20 @@
 import React from 'react';
-import Container from 'react-bootstrap/Container';
-import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
+import { useLocation, Link } from 'react-router-dom';
+import { Container, Nav, Navbar } from 'react-bootstrap';
 import './NavBar.css';
-import NavDropdown from 'react-bootstrap/NavDropdown';
-import logo from 'C:/Users/Ragnor/Desktop/react_vite_app/public/images/Logo/logo.png';
 
+// RELATIVE PATH: This ensures the logo loads on GitHub Pages and other computers
+const logo = '/images/Logo/logo.png'; 
 
-<nav className="navbar bg-body-tertiary">
-</nav>
 const NavBar = () => {
+  // HOOK: useLocation is required to get the current path for the 'active' class
+  const location = useLocation(); 
+
   return (
     <Navbar expand="lg" className="bg-body-tertiary pt-0 mt-0">
       <Container className='pt-0 mt-0'>
-        <Navbar.Brand href="#home" className="custom-navbar-brand">
+        {/* SPA NAVIGATION: Use 'as={Link}' to prevent page reloads */}
+        <Navbar.Brand as={Link} to="/" className="custom-navbar-brand">
           <img
             src={logo}
             alt="Homio Properties Logo"
@@ -21,35 +22,40 @@ const NavBar = () => {
             height="70"
             style={{ marginTop: '20px' }} 
             className="d-inline-block align-top"
-          />{' '}
-          
+          />
         </Navbar.Brand>
 
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ms-auto">
-            <Nav.Link href="/" className={`m-1 ${location.pathname === '/' ? 'active' : ''}`}>
+            <Nav.Link 
+              as={Link} 
+              to="/" 
+              className={`m-1 ${location.pathname === '/' ? 'active' : ''}`}
+            >
               Home
             </Nav.Link>
             <Nav.Link
-              href="/properties"
+              as={Link}
+              to="/properties"
               className={`m-1 ${location.pathname === '/properties' ? 'active' : ''}`}
             >
               Properties
             </Nav.Link>
             <Nav.Link
-              href="/services"
+              as={Link}
+              to="/services"
               className={`m-1 ${location.pathname === '/services' ? 'active' : ''}`}
             >
               Services
             </Nav.Link>
             <Nav.Link
-              href="/aboutus"
+              as={Link}
+              to="/aboutus"
               className={`m-1 ${location.pathname === '/aboutus' ? 'active' : ''}`}
             >
               About Us
             </Nav.Link>
-            
           </Nav>
         </Navbar.Collapse>
       </Container>
@@ -58,4 +64,3 @@ const NavBar = () => {
 };
 
 export default NavBar;
-

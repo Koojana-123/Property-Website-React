@@ -5,10 +5,11 @@ import { FiArrowRight, FiCheckCircle, FiUser, FiHome, FiSearch } from 'react-ico
 import './HomePage.css';
 
 // Using absolute path for public folder images in Vite
-const Homeimage = '/images/Banner/Homeimage.png';
-const detailImg1 = '/images/Homeimg/img1.jpg';
-const detailImg2 = '/images/Homeimg/Img2.jpeg';
-const detailImg3 = '/images/Homeimg/Img3.jpeg';
+// Using Vite's base URL variable to ensure paths work on GitHub Pages
+const Homeimage = `${import.meta.env.BASE_URL}images/Banner/Homeimage.png`;
+const detailImg1 = `${import.meta.env.BASE_URL}images/Homeimg/img1.jpg`;
+const detailImg2 = `${import.meta.env.BASE_URL}images/Homeimg/Img2.jpeg`;
+const detailImg3 = `${import.meta.env.BASE_URL}images/Homeimg/Img3.jpeg`;
 
 const HomePage = () => {
   const extraDetails = [
