@@ -98,8 +98,12 @@ const Properties = () => {
         </small>
       </div>
 
-      <Container className="py-5">
-        <h2 className="mb-4 fw-bold text-center">Find Your Property </h2>
+        <h2 
+      className="mb-4 fw-bold text-center" 
+      style={{ color: '#000000' }}
+      >
+        Find Your Property
+          </h2>
         
         {/* Search form using React Widgets  */}
         <div className="filter-panel p-4 bg-white rounded shadow-sm mb-5">
